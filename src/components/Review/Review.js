@@ -2,30 +2,21 @@ import React, {Component} from 'react';
 import {HashRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-class Supported extends Component {
+class Comments extends Component {
+    
 
-    state = {
-        value: ''
-    }
-    
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value
-        })
-    }
-    
     handleClick = () => {
+        // make axios post request in function
         console.log(this.state.value);
         this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value})
-        this.props.history.push('/comments');
+        // this.props.history.push('/supported');
     }
 
 
     render() {
         return(
             <Router>
-                <h1>How are you being supported?</h1>
-                <input onChange={this.handleChange} type="number"/> 
+                {/* // this.props.reduxState.reducer here */}
                 <Link to="/comments"><button onClick ={this.handleClick}>Next</button></Link>
             </Router>
         )
@@ -36,4 +27,4 @@ const reduxStateOnProps = (reduxState) => ({
     reduxState
 })
 
-export default connect(reduxStateOnProps)(Supported)
+export default connect(reduxStateOnProps)(Comments);
