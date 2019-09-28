@@ -25,6 +25,7 @@ class Supported extends Component {
         return(
             <Router>
                 <h1>How are you being supported?</h1>
+                <p>On a scale of 1-5, 1 being the worst and 5 being the best.</p>
                 <input onChange={this.handleChange} type="number"/> 
                 <Link to="/comments"><button onClick ={this.handleClick}>Next</button></Link>
             </Router>
