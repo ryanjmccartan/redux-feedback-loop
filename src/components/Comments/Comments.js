@@ -13,12 +13,12 @@ class Comments extends Component {
         })
     }
     
+    // handleClick function sends value to redux state
     handleClick = () => {
-        console.log(this.state.value);
+        console.log('comments:', this.state.value);
         this.props.dispatch({type: 'ADD_COMMENTS', payload: this.state.value})
         this.props.history.push('/review');
     }
-
 
     render() {
         return(
@@ -31,8 +31,4 @@ class Comments extends Component {
     }
 }
 
-const reduxStateOnProps = (reduxState) => ({
-    reduxState
-})
-
-export default connect(reduxStateOnProps)(Comments);
+export default connect()(Comments);

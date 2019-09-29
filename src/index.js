@@ -8,10 +8,8 @@ import registerServiceWorker from './registerServiceWorker';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 
-
-
+// Reducers
 const feelingReducer = (state = [], action) => {
-    console.log('hello from feelingReducer', action.payload);
     switch(action.type){
         case 'ADD_FEELING':
             return [...state, action.payload];
@@ -23,7 +21,6 @@ const feelingReducer = (state = [], action) => {
 }
 
 const understandingReducer = (state = [], action) => {
-    console.log('hello from understandingReducer', action.payload);
     switch(action.type){
         case 'ADD_UNDERSTANDING':
             return [...state, action.payload];
@@ -35,7 +32,6 @@ const understandingReducer = (state = [], action) => {
 }
 
 const supportedReducer = (state = [], action) => {
-    console.log('hello from supportedReducer', action.payload);
     switch(action.type){
         case 'ADD_SUPPORTED':
             return [...state, action.payload];
@@ -47,7 +43,6 @@ const supportedReducer = (state = [], action) => {
 }
 
 const commentsReducer = (state = [], action) => {
-    console.log('hello from commentsReducer', action.payload);
     switch(action.type){
         case 'ADD_COMMENTS':
             return [...state, action.payload];
@@ -57,8 +52,6 @@ const commentsReducer = (state = [], action) => {
             return state    
     }
 }
-
-
 
 const storeInstance = createStore (
     combineReducers({

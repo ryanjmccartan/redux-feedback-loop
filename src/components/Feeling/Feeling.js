@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
 class Feeling extends Component {
 
     state = {
         value: ''
     }
-
 
     handleChange = (event) => {
         this.setState({
@@ -15,17 +13,17 @@ class Feeling extends Component {
         })
     }
 
+    // handleClick function sends value to redux state
     handleClick = () => {
-        console.log(this.state.value);
+        console.log('feeling:', this.state.value);
         if(this.state.value === ''){
-            alert("Please choose a number");
+            alert("Please choose a number.");
         }
         else{
         this.props.dispatch({type: 'ADD_FEELING', payload: this.state.value});
         this.props.history.push('/understanding');
         }
     }
-
 
     render() {
         return(
@@ -39,8 +37,4 @@ class Feeling extends Component {
     }
 }
 
-const reduxStateOnProps = (reduxState) => ({
-    reduxState
-})
-
-export default connect(reduxStateOnProps)(Feeling);
+export default connect()(Feeling);

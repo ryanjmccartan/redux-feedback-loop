@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
 class Understanding extends Component {
 
     state = {
@@ -14,10 +13,11 @@ class Understanding extends Component {
         })
     }
     
+    // handleClick function sends value to redux state
     handleClick = () => {
-        console.log(this.state.value);
+        console.log('understanding:', this.state.value);
         if(this.state.value === ''){
-            alert("Please choose a number");
+            alert("Please choose a number.");
         }
         else{
         this.props.dispatch({type: 'ADD_UNDERSTANDING', payload: this.state.value});
@@ -37,8 +37,4 @@ class Understanding extends Component {
     }
 }
 
-const reduxStateOnProps = (reduxState) => ({
-    reduxState
-})
-
-export default connect(reduxStateOnProps)(Understanding);
+export default connect()(Understanding);

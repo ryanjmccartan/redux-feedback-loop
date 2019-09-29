@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
-// import components
+// Import components
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
@@ -19,6 +19,7 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
+      {/* // Routes that lead to each component */}
       <Router>
         <Route exact path = "/" component = {Feeling}/>
         <Route exact path = "/understanding" component = {Understanding}/>

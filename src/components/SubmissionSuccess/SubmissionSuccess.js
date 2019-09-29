@@ -3,13 +3,12 @@ import {connect} from 'react-redux';
 
 class Comments extends Component {
     
-
+    // Empty out redux state, return to home page
     handleClick = () => {
-        // create dispatch that clears the feedback
         this.props.dispatch({type: 'EMPTY_FEEDBACK'})
+        console.log('feedback reducers emptied');
         this.props.history.push('/');       
     }
-
 
     render() {
         return(
@@ -21,8 +20,4 @@ class Comments extends Component {
     }
 }
 
-const reduxStateOnProps = (reduxState) => ({
-    reduxState
-})
-
-export default connect(reduxStateOnProps)(Comments);
+export default connect()(Comments);

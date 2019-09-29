@@ -3,7 +3,7 @@ const router = express.Router();
 
 const pool = require('../modules/pool.js');
 
-
+// POST feedback to database
 router.post('/', (req, res) => {
     let feedbackObject = req.body;
     console.log('Adding feedback', feedbackObject);
@@ -17,8 +17,5 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
     })
 });
-
-// `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-//     VALUES ($1, $2, $3, $4);`;
 
 module.exports = router;
