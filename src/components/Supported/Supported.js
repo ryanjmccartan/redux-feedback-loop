@@ -19,7 +19,7 @@ class Supported extends Component {
             alert("Please choose a number");
         }
         else{
-        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value});
+        this.props.dispatch({type: 'ADD_SUPPORTED', payload: this.state.value});
         this.props.history.push('/comments');
         }
     }

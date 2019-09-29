@@ -20,7 +20,7 @@ class Understanding extends Component {
             alert("Please choose a number");
         }
         else{
-        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value});
+        this.props.dispatch({type: 'ADD_UNDERSTANDING', payload: this.state.value});
         this.props.history.push('/supported');
         }
     }

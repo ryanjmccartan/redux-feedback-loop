@@ -5,7 +5,9 @@ class Comments extends Component {
     
 
     handleClick = () => {
-        this.props.history.push('/');
+        // create dispatch that clears the feedback
+        this.props.dispatch({type: 'EMPTY_FEEDBACK'})
+        this.props.history.push('/');       
     }
 
 

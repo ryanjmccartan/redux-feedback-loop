@@ -21,7 +21,7 @@ class Feeling extends Component {
             alert("Please choose a number");
         }
         else{
-        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value});
+        this.props.dispatch({type: 'ADD_FEELING', payload: this.state.value});
         this.props.history.push('/understanding');
         }
     }
@@ -32,7 +32,6 @@ class Feeling extends Component {
             <div>
                 <h1>How are you feeling today?</h1>
                 <p>On a scale of 1-5, 1 being the worst and 5 being the best.</p>
-                {/* turn input into radio buttons with numbers from 1-5 */}
                 <input onChange={this.handleChange} type="number" min="1" max="5"/> 
                 <button onClick={this.handleClick}>Next</button>
             </div>
