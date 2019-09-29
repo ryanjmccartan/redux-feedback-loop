@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class Supported extends Component {
@@ -16,19 +15,24 @@ class Supported extends Component {
     
     handleClick = () => {
         console.log(this.state.value);
-        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value})
+        if(this.state.value === ''){
+            alert("Please choose a number");
+        }
+        else{
+        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value});
         this.props.history.push('/comments');
+        }
     }
 
 
     render() {
         return(
-            <Router>
+            <>
                 <h1>How are you being supported?</h1>
                 <p>On a scale of 1-5, 1 being the worst and 5 being the best.</p>
-                <input onChange={this.handleChange} type="number"/> 
-                <Link to="/comments"><button onClick ={this.handleClick}>Next</button></Link>
-            </Router>
+                <input onChange={this.handleChange} type="number" min="1" max="5"/> 
+                <button onClick ={this.handleClick}>Next</button>
+            </>
         )
     }
 }

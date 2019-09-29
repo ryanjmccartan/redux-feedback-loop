@@ -5,16 +5,16 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 // Redux
-import { createStore, combineReducers} from 'redux';
-import { Provider } from 'react-redux';
+import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
 
 const feedbackReducer = (state = [], action) => {
-    // console.log('hello from reducer', action.payload);
+    console.log('hello from reducer', action.payload);
     switch(action.type){
         case 'SET_FEEDBACK':
             return [...state, action.payload];
         default: 
-            return state       
+            return state    
     }
 }
 

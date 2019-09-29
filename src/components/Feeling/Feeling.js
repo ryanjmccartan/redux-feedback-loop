@@ -1,38 +1,41 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Link} from 'react-router-dom';
-// import Understanding from '../Understanding/Understanding'
 import {connect} from 'react-redux';
 
 
 class Feeling extends Component {
 
-state = {
-    value: ''
-}
+    state = {
+        value: ''
+    }
 
 
-handleChange = (event) => {
-    this.setState({
-        value: event.target.value
-    })
-}
+    handleChange = (event) => {
+        this.setState({
+            value: event.target.value
+        })
+    }
 
-handleClick = () => {
-    console.log(this.state.value);
-    this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value})
-    this.props.history.push('/understanding');
-}
+    handleClick = () => {
+        console.log(this.state.value);
+        if(this.state.value === ''){
+            alert("Please choose a number");
+        }
+        else{
+        this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value});
+        this.props.history.push('/understanding');
+        }
+    }
 
 
     render() {
         return(
-        <Router>
-            <h1>How are you feeling today?</h1>
-            <p>On a scale of 1-5, 1 being the worst and 5 being the best.</p>
-            {/* turn input into radio buttons with numbers from 1-5 */}
-            <input onChange={this.handleChange} type="number"/> 
-            <Link to="/understanding"><button onClick={this.handleClick}>Next</button></Link>
-    </Router>
+            <div>
+                <h1>How are you feeling today?</h1>
+                <p>On a scale of 1-5, 1 being the worst and 5 being the best.</p>
+                {/* turn input into radio buttons with numbers from 1-5 */}
+                <input onChange={this.handleChange} type="number" min="1" max="5"/> 
+                <button onClick={this.handleClick}>Next</button>
+            </div>
         )
     }
 }

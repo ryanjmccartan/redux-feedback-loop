@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class Comments extends Component {
@@ -17,17 +16,17 @@ class Comments extends Component {
     handleClick = () => {
         console.log(this.state.value);
         this.props.dispatch({type: 'SET_FEEDBACK', payload: this.state.value})
-        // this.props.history.push('/supported');
+        this.props.history.push('/review');
     }
 
 
     render() {
         return(
-            <Router>
+            <>
                 <h1>Any comments you want to leave?</h1>
                 <input onChange={this.handleChange} type="text"/> 
-                <Link to="/review"><button onClick ={this.handleClick}>Next</button></Link>
-            </Router>
+                <button onClick ={this.handleClick}>Next</button>
+            </>
         )
     }
 }

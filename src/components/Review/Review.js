@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {HashRouter as Router} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class Comments extends Component {
@@ -13,11 +12,12 @@ class Comments extends Component {
 
     render() {
         return(
-            <Router>
+            <>
                 {/* // display this.props.reduxState.reducer here */}
                 {/* the button will submit post request to database and bring user to submission success page */}
-                <button onClick ={this.handleClick}>Next</button>
-            </Router>
+                <h1>Here is the review of your feedback!</h1>
+                <button onClick ={this.handleClick}>Submit</button>
+            </>
         )
     }
 }
