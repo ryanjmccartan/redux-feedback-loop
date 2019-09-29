@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
+
 
 class Comments extends Component {
 
 
     state = {
-        object: {
-            feeling: this.props.reduxState.feelingReducer,
-            understanding: this.props.reduxState.understandingReducer,
-            supported: this.props.reduxState.supportedReducer,
+        feedbackObject: {
+            feeling: Number(this.props.reduxState.feelingReducer),
+            understanding: Number(this.props.reduxState.understandingReducer),
+            supported: Number(this.props.reduxState.supportedReducer),
             comments: this.props.reduxState.commentsReducer
         }
     }
     
 
     handleClick = () => {
-        // make axios post request in function
+        axios.post('/feedback', this.state.feedbackObject).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log('error with POST request', error)
+        })
         this.props.history.push('/success');
     }
 
@@ -24,15 +30,14 @@ class Comments extends Component {
         return(
             <>
                 <h1>Here is the review of your feedback!</h1>
-                {/* // display this.props.reduxState.reducer here */}
                     <p>
-                    Feeling: {this.state.object.feeling}
+                    Feeling: {this.state.feedbackObject.feeling}
                     <br/>
-                    Understanding: {this.state.object.understanding}
+                    Understanding: {this.state.feedbackObject.understanding}
                     <br/>
-                    Supported: {this.state.object.supported}
+                    Support: {this.state.feedbackObject.supported}
                     <br/>
-                    Comments: {this.state.object.comments}              
+                    Comments: "{this.state.feedbackObject.comments}"             
                     </p>
                     
                 {/* <p>{JSON.stringify(this.props.reduxState)}</p> */}

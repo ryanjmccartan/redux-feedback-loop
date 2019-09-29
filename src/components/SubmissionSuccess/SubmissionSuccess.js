@@ -15,7 +15,6 @@ class Comments extends Component {
         return(
         <>
             <h1>Thank you for your feedback!</h1>
-            {/* // add button here that will reset survey from the beginning  */}
             <button onClick={this.handleClick}>Leave New Feedback</button>
         </>
         )
