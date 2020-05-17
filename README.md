@@ -1,6 +1,5 @@
-# Project Name
+# Feedback Frenzy
 
-Redux Feedback Loop
 
 ## Description
 
